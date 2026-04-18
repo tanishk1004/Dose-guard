@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoseGuard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>💊 DoseGuard</h1>
+    <p>Smart Medication Management — Never Miss. Never Risk.</p>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat-box" id="statTaken">✅ Taken: 0</div>
+  <div class="stat-box" id="statMissed">❌ Missed: 0</div>
+  <div class="stat-box" id="statAdherence">📊 Adherence: 0%</div>
+  <div class="stat-box" id="statStreak">🔥 Streak: 0 days</div>
+</div>
+
+<div class="container">
+
+  <!-- Add Medicine -->
+  <div class="card">
+    <h2>➕ Add Medication</h2>
+    <input type="text" id="medName" placeholder="Medicine Name">
+    <input type="time" id="medTime">
+    <input type="text" id="medDose" placeholder="Dosage (e.g. 500mg)">
+    <select id="medFreq">
+      <option value="daily">Daily</option>
+      <option value="twice">Twice a Day</option>
+      <option value="weekly">Weekly</option>
+    </select>
+    <button onclick="addMedicine()">Add Medication</button>
+  </div>
+
+  <!-- Today's Schedule -->
+  <div class="card">
+    <h2>📋 Today's Schedule</h2>
+    <ul id="medList"></ul>
+    <button class="danger" onclick="clearMedicines()">🗑 Clear All</button>
+  </div>
+
+  <!-- Side Effects -->
+  <div class="card">
+    <h2>⚠️ Side Effect Tracker</h2>
+    <select id="sideEffect">
+      <option>Nausea</option>
+      <option>Headache</option>
+      <option>Dizziness</option>
+      <option>Fatigue</option>
+      <option>Rash</option>
+      <option>Stomach Pain</option>
+    </select>
+    <button onclick="logEffect()">Log Effect</button>
+    <ul id="effectList"></ul>
+    <button class="danger" onclick="clearEffects()">🗑 Clear Effects</button>
+  </div>
+
+  <!-- Reminders -->
+  <div class="card">
+    <h2>🔔 Reminders</h2>
+    <p id="reminderStatus" style="color:gray; font-size:0.9rem;">Click below to enable browser reminders.</p>
+    <button onclick="enableReminders()">Enable Notifications</button>
+    <ul id="reminderList"></ul>
+  </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div id="toast"></div>
+
+<footer>
+  <p>Built for Healthcare Hackathon 🚀 | DoseGuard © 2025</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
